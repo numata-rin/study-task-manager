@@ -1,0 +1,13 @@
+.main-content {
+  height: 75vh;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+
+  overflow-y: auto;
+}
+
+.main-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
