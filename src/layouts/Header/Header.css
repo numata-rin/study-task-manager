@@ -1,0 +1,20 @@
+.header {
+  height: 15vh;
+  background-color: #B5B2AE;
+  padding: 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  margin: 8px 0 0;
+  font-size: 16px;
+}
