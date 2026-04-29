@@ -1,0 +1,45 @@
+.task-item {
+  list-style: none;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.task-item--completed {
+  background-color: #f3f4f6;
+  color: #777;
+}
+
+.task-item--completed .task-item__title {
+  text-decoration: line-through;
+}
+
+.task-item__main {
+  margin-bottom: 12px;
+}
+
+.task-item__title {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.task-item__content {
+  margin: 0;
+  font-size: 14px;
+}
+
+.task-item__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.task-item__deadline {
+  color: #555;
+}
+
+.task-item__status {
+  font-weight: bold;
+}

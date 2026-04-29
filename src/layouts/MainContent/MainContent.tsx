@@ -1,10 +1,17 @@
 import "./MainContent.css";
 
-const MainContent = () => {
+import type { Task } from "../../types/task";
+import TaskList from "../../conponents/TaskList/TaskList";
+
+type MainContentProps = {
+  tasks: Task[];
+}
+
+const MainContent = ({ tasks }: MainContentProps) => {
 
   return (
     <main className="main-content">
-      <h2>タスク一覧</h2>
+      <TaskList tasks={tasks}/>
     </main>
   )
 };
