@@ -1,6 +1,6 @@
 import "./TaskItem.css";
 
-import type { Task } from "../../types/task";
+import type { Task } from "../../../types/task";
 
 type TaskItemProps = {
   task: Task;

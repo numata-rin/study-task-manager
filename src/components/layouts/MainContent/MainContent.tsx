@@ -1,8 +1,8 @@
 import "./MainContent.css";
 
-import type { Task } from "../../types/task";
-import TaskList from "../../conponents/TaskList/TaskList";
-import TaskForm from "../../conponents/TaskForm/TaskForm";
+import type { Task } from "../../../types/task";
+import TaskList from "../../tasks/TaskList/TaskList";
+import TaskForm from "../../tasks/TaskForm/TaskForm";
 
 type MainContentProps = {
   tasks: Task[];
