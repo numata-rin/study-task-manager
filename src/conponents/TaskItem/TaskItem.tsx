@@ -5,11 +5,13 @@ import type { Task } from "../../types/task";
 type TaskItemProps = {
   task: Task;
   onToggleTaskCompletion: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
 const TaskItem = ({
   task,
   onToggleTaskCompletion,
+  onDeleteTask,
 }: TaskItemProps) => {
   
   return (
@@ -36,6 +38,14 @@ const TaskItem = ({
       <div className="task-item__meta">
         <span className="task-item__deadline">期限： {task.deadline}</span>
       </div>
+
+      <button
+        type="button"
+        className="task-item__delete-button"
+        onClick={() => onDeleteTask(task.id)}
+      >
+      削除
+      </button>
       
     </li>
   )

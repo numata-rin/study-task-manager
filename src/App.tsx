@@ -24,6 +24,10 @@ function App() {
     setTasks((prevTasks) => [newTask, ...prevTasks]);
   }
 
+  const deleteTask = (id: string) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
   const toggleTaskCompletion = (id: string) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
@@ -42,6 +46,7 @@ function App() {
         tasks={tasks}
         onAddTask={addTask}
         onToggleTaskCompletion={toggleTaskCompletion}
+        onDeleteTask={deleteTask}
       />
 
       <Footer />

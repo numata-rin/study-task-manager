@@ -56,3 +56,17 @@
 .task-item__deadline {
   color: #555;
 }
+
+.task-item__delete-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #fee2e2;
+  color: #991b1b;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.task-item__delete-button:hover {
+  opacity: 0.8;
+}
