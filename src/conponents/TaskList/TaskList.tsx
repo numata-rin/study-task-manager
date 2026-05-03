@@ -5,10 +5,14 @@ import TaskItem from "../TaskItem/TaskItem.tsx";
 
 type TaskListProps = {
   tasks: Task[];
+  onToggleTaskCompletion: (id: string) => void;
 };
 
 
-const TaskList = ({ tasks }: TaskListProps) => {
+const TaskList = ({
+  tasks,
+  onToggleTaskCompletion,
+}: TaskListProps) => {
   
   if (tasks.length === 0) {
     return <p className="task-list__empty">タスクはまだありません。</p>;
@@ -20,7 +24,11 @@ const TaskList = ({ tasks }: TaskListProps) => {
 
       <ul className="task-list__items">
         {tasks.map((task) => (
-          <TaskItem key={task.id} task={task}/>
+          <TaskItem
+            key={task.id}
+            task={task}
+            onToggleTaskCompletion={onToggleTaskCompletion}
+            />
         ))}
       </ul>
     </section>

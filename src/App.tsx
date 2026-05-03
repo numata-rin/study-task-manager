@@ -23,12 +23,26 @@ function App() {
 
     setTasks((prevTasks) => [newTask, ...prevTasks]);
   }
+
+  const toggleTaskCompletion = (id: string) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id
+          ? {...task, completed: !task.completed }
+          : task
+      )
+    );
+  };
   
   return (
     <div className='app'>
       <Header />
 
-      <MainContent tasks={tasks} onAddTask={addTask} />
+      <MainContent
+        tasks={tasks}
+        onAddTask={addTask}
+        onToggleTaskCompletion={toggleTaskCompletion}
+      />
 
       <Footer />
     </div>
