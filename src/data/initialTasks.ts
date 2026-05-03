@@ -1,6 +1,6 @@
 import type { Task } from "../types/task";
 
-export const initialTasks: Task[] = [
+const initialTasks: Task[] = [
   {
     id: "1",
     title: "Test Task",
@@ -26,3 +26,5 @@ export const initialTasks: Task[] = [
     createdAt: "2026-04-29T00:00:00.000Z",
   }
 ];
+
+export default initialTasks;
