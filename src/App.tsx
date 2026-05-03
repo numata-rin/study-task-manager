@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from './layouts/Header/Header';
 import MainContent from './layouts/MainContent/MainContent';
@@ -7,9 +7,21 @@ import Footer from './layouts/Footer/Footer';
 
 import initialTasks from './data/initialTasks';
 import type { Task } from "./types/task";
+import {
+  loadTasksFromLocalStorage,
+  saveTasksToLocalStorage,
+} from "./utils/localStorage";
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const storeadTasks = loadTasksFromLocalStorage();
+
+    return storeadTasks ?? initialTasks;
+  });
+
+  useEffect(() => {
+    saveTasksToLocalStorage(tasks);
+  }, [tasks]);
 
   const addTask = (title: string, content: string, deadline: string) => {
     const newTask: Task = {
@@ -54,4 +66,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
