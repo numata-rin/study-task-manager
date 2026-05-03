@@ -15,8 +15,25 @@
   text-decoration: line-through;
 }
 
+.task-item--completed .task-item__content {
+  text-decoration: line-through;
+}
+
 .task-item__main {
   margin-bottom: 12px;
+}
+
+.task-item__check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.task-item__status-text {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .task-item__title {
@@ -38,8 +55,4 @@
 
 .task-item__deadline {
   color: #555;
-}
-
-.task-item__status {
-  font-weight: bold;
 }
