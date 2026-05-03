@@ -1,9 +1,9 @@
 import './App.css'
 import { useState, useEffect } from 'react';
 
-import Header from './layouts/Header/Header';
-import MainContent from './layouts/MainContent/MainContent';
-import Footer from './layouts/Footer/Footer';
+import Header from './components/layouts/Header/Header';
+import MainContent from './components/layouts/MainContent/MainContent';
+import Footer from './components/layouts/Footer/Footer';
 
 import initialTasks from './data/initialTasks';
 import type { Task } from "./types/task";

@@ -1,6 +1,6 @@
 import "./TaskList.css";
 
-import type { Task } from "../../types/task";
+import type { Task } from "../../../types/task.ts";
 import TaskItem from "../TaskItem/TaskItem.tsx";
 
 type TaskListProps = {
