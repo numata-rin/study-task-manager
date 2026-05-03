@@ -8,12 +8,14 @@ type MainContentProps = {
   tasks: Task[];
   onAddTask: (title: string, content: string, deadline: string) => void;
   onToggleTaskCompletion: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 };
 
 const MainContent = ({
   tasks,
   onAddTask,
   onToggleTaskCompletion,
+  onDeleteTask,
  }: MainContentProps) => {
 
   return (
@@ -21,6 +23,7 @@ const MainContent = ({
       <TaskList
       tasks={tasks}
       onToggleTaskCompletion={onToggleTaskCompletion}
+      onDeleteTask={onDeleteTask}
       />
       
       <TaskForm onAddTask={onAddTask}/>

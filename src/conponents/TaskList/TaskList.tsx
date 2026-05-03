@@ -6,12 +6,14 @@ import TaskItem from "../TaskItem/TaskItem.tsx";
 type TaskListProps = {
   tasks: Task[];
   onToggleTaskCompletion: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 };
 
 
 const TaskList = ({
   tasks,
   onToggleTaskCompletion,
+  onDeleteTask,
 }: TaskListProps) => {
   
   if (tasks.length === 0) {
@@ -28,6 +30,7 @@ const TaskList = ({
             key={task.id}
             task={task}
             onToggleTaskCompletion={onToggleTaskCompletion}
+            onDeleteTask={onDeleteTask}
             />
         ))}
       </ul>
