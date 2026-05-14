@@ -15,10 +15,6 @@
   text-decoration: line-through;
 }
 
-.task-item--completed .task-item__content {
-  text-decoration: line-through;
-}
-
 .task-item__main {
   margin-bottom: 12px;
 }

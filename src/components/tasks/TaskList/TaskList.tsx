@@ -7,6 +7,7 @@ type TaskListProps = {
   tasks: Task[];
   onToggleTaskCompletion: (id: string) => void;
   onDeleteTask: (id: string) => void;
+  onEditTask: (id: string, title: string, content: string, deadline: string) => void;
 };
 
 
@@ -14,6 +15,7 @@ const TaskList = ({
   tasks,
   onToggleTaskCompletion,
   onDeleteTask,
+  onEditTask,
 }: TaskListProps) => {
   
   if (tasks.length === 0) {
@@ -31,6 +33,7 @@ const TaskList = ({
             task={task}
             onToggleTaskCompletion={onToggleTaskCompletion}
             onDeleteTask={onDeleteTask}
+            onEditTask={onEditTask}
             />
         ))}
       </ul>

@@ -40,6 +40,21 @@ function App() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
+  const editTask = (id: string, title: string, content: string, deadline: string) => {
+    setTasks((prevTasks) => 
+      prevTasks.map((task) => 
+        task.id === id
+          ? {
+            ...task,
+            title,
+            content,
+            deadline,
+          }
+        : task
+      )
+    );
+  };
+
   const toggleTaskCompletion = (id: string) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
@@ -59,6 +74,7 @@ function App() {
         onAddTask={addTask}
         onToggleTaskCompletion={toggleTaskCompletion}
         onDeleteTask={deleteTask}
+        onEditTask={editTask}
       />
 
       <Footer />
