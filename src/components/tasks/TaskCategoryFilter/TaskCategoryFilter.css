@@ -1,0 +1,17 @@
+.task-category-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.task-category-filter__label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.task-category-filter__select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
