@@ -26,7 +26,7 @@ const TaskList = ({
 }: TaskListProps) => {
   
   if (tasks.length === 0) {
-    return <p className="task-list__empty">タスクはまだありません。</p>;
+    return <p className="task-list__empty">表示できるタスクがまだありません。</p>;
   }
 
   return (
