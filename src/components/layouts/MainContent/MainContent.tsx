@@ -6,6 +6,7 @@ import TaskList from "../../tasks/TaskList/TaskList";
 import TaskForm from "../../tasks/TaskForm/TaskForm";
 import TaskSearch from "../../tasks/TaskSearch/TaskSearch";
 import TaskCategoryFilter from "../../tasks/TaskCategoryFilter/TaskCategoryFilter";
+import { TaskCompletionFilter, type CompletionFilterValue } from "../../tasks/TaskCompletionFilter/TaskCompletionFilter";
 
 type CategoryFilterValue = TaskCategory | "all";
 
@@ -39,6 +40,7 @@ const MainContent = ({
  }: MainContentProps) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilterValue>("all");
+  const [completionFilter, setCompletionFilter] = useState<CompletionFilterValue>("all");
 
   // trim()で前後の空白を削除、toLowerCase()で大文字小文字を区別しないように小文字化
   const normalizedKeyword = searchKeyword.trim().toLowerCase();
@@ -52,7 +54,12 @@ const MainContent = ({
       const matchesCategory = 
         selectedCategory === "all" || task.category === selectedCategory;
 
-      return matchesKeyword && matchesCategory;
+      const matchesCompletion = 
+        completionFilter === "all" ||
+        (completionFilter === "completed" && task.completed) ||
+        (completionFilter === "incomplete" && !task.completed);
+
+      return matchesKeyword && matchesCategory && matchesCompletion;
   });
 
   return (
@@ -68,11 +75,16 @@ const MainContent = ({
         onChangeCategory={setSelectedCategory}
       />
 
+      <TaskCompletionFilter
+        completionFilter={completionFilter}
+        onChangeCompletionFilter={setCompletionFilter}
+      />
+
       <TaskList
-      tasks={filteredTasks}
-      onToggleTaskCompletion={onToggleTaskCompletion}
-      onDeleteTask={onDeleteTask}
-      onEditTask={onEditTask}
+        tasks={filteredTasks}
+        onToggleTaskCompletion={onToggleTaskCompletion}
+        onDeleteTask={onDeleteTask}
+        onEditTask={onEditTask}
       />
       
       <TaskForm onAddTask={onAddTask}/>

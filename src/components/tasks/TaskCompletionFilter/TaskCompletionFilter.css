@@ -1,0 +1,37 @@
+.task-completion-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-completion-filter__label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.task-completion-filter__buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-completion-filter__button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.task-completion-filter__button:hover {
+  opacity: 0.8;
+}
+
+.task-completion-filter__button--active {
+  background-color: #333;
+  color: #ffffff;
+  border-color: #333;
+}
