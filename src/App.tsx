@@ -6,7 +6,7 @@ import MainContent from './components/layouts/MainContent/MainContent';
 import Footer from './components/layouts/Footer/Footer';
 
 import initialTasks from './data/initialTasks';
-import type { Task } from "./types/task";
+import type { Task, TaskCategory, TaskPriority } from "./types/task";
 import {
   loadTasksFromLocalStorage,
   saveTasksToLocalStorage,
@@ -23,12 +23,20 @@ function App() {
     saveTasksToLocalStorage(tasks);
   }, [tasks]);
 
-  const addTask = (title: string, content: string, deadline: string) => {
+  const addTask = (
+    title: string, 
+    content: string, 
+    deadline: string, 
+    category: TaskCategory, 
+    priority: TaskPriority
+  ) => {
     const newTask: Task = {
       id: crypto.randomUUID(),
       title,
       content,
       deadline,
+      category,
+      priority,
       completed: false,
       createdAt: new Date().toISOString(),
     };
@@ -40,7 +48,14 @@ function App() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
-  const editTask = (id: string, title: string, content: string, deadline: string) => {
+  const editTask = (
+    id: string, 
+    title: string, 
+    content: string, 
+    deadline: string,
+    category: TaskCategory,
+    priority: TaskPriority,
+  ) => {
     setTasks((prevTasks) => 
       prevTasks.map((task) => 
         task.id === id
@@ -49,6 +64,8 @@ function App() {
             title,
             content,
             deadline,
+            category,
+            priority,
           }
         : task
       )

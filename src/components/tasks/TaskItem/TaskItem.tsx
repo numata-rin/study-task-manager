@@ -1,6 +1,6 @@
 import "./TaskItem.css";
 
-import type { Task } from "../../../types/task";
+import type { Task, TaskCategory, TaskPriority } from "../../../types/task";
 import { useState } from "react";
 
 type TaskItemProps = {
@@ -12,7 +12,15 @@ type TaskItemProps = {
     title: string,
     content: string,
     deadline: string,
+    category: TaskCategory,
+    priority: TaskPriority,
   ) => void;
+};
+
+const priorityLabels: Record<TaskPriority, string> = {
+  low: "低",
+  medium: "中",
+  high: "高",
 };
 
 const TaskItem = ({
@@ -25,12 +33,16 @@ const TaskItem = ({
   const [editTitle, setEditTitle] = useState(task.title);
   const [editContent, setEditContent] = useState(task.content);
   const [editDeadline, setEditDeadline] = useState(task.deadline);
+  const [editCategory, setEditCategory] = useState<TaskCategory>(task.category);
+  const [editPriority, setEditPriority] = useState<TaskPriority>(task.priority);
 
   const handleEditStart = () => {
     setIsEditing(true);
     setEditTitle(task.title);
     setEditContent(task.content);
     setEditDeadline(task.deadline);
+    setEditCategory(task.category);
+    setEditPriority(task.priority);
   };
 
   const handleEditCancel = () => {
@@ -38,6 +50,8 @@ const TaskItem = ({
     setEditTitle(task.title);
     setEditContent(task.content);
     setEditDeadline(task.deadline);
+    setEditCategory(task.category);
+    setEditPriority(task.priority);
   };
 
   const handleEditSave = () => {
@@ -45,7 +59,15 @@ const TaskItem = ({
       return;
     }
 
-    onEditTask(task.id, editTitle, editContent, editDeadline);
+    onEditTask(
+      task.id, 
+      editTitle, 
+      editContent, 
+      editDeadline,
+      editCategory,
+      editPriority
+    );
+
     setIsEditing(false);
   };
 
@@ -82,6 +104,34 @@ const TaskItem = ({
             />
           </div>
 
+          <div className="task-item__edit-field">
+            <label htmlFor={`edit-category-${task.id}`}>カテゴリ</label>
+            <select
+              id={`edit-category-${task.id}`}
+              value={editCategory}
+              onChange={(e) => setEditCategory(e.target.value as TaskCategory)}
+            >
+              <option value="React">React</option>
+              <option value="Django">Django</option>
+              <option value="Research">Research</option>
+              <option value="TOEIC">TOEIC</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div className="task-item__edit-field">
+            <label htmlFor={`edit-priority-${task.id}`}>優先度</label>
+            <select
+              id={`edit-priority-${task.id}`}
+              value={editPriority}
+              onChange={(e) => setEditPriority(e.target.value as TaskPriority)}
+            >
+              <option value="low">低</option>
+              <option value="medium">中</option>
+              <option value="high">高</option>
+            </select>
+          </div>
+
           <div className="task-item__action">
             <button type="button" onClick={handleEditSave}>
               保存
@@ -114,22 +164,33 @@ const TaskItem = ({
         <p className="task-item__content">{task.content}</p>
       </div>
 
-      <div className="task-item__meta">
-        <span className="task-item__deadline">期限： {task.deadline}</span>
+      <div className="task-item__details">
+        <span className="task-item__detail">カテゴリ: {task.category}</span>
+        <span className="task-item__detail">
+          優先度: {priorityLabels[task.priority]}
+        </span>
       </div>
 
-      <div className="task-item__action">
-        <button type="button" onClick={handleEditStart}>
-          編集
-        </button>
+      <div className="task-item__meta">
+        <span className="task-item__deadline">期限: {task.deadline}</span>
 
-        <button
-          type="button"
-          className="task-item__delete-button"
-          onClick={() => onDeleteTask(task.id)}
-        >
-          削除
-        </button>
+        <div className="task-item__actions">
+          <button
+            type="button"
+            className="task-item__edit-button"
+            onClick={handleEditStart}
+          >
+            編集
+          </button>
+
+          <button
+            type="button"
+            className="task-item__delete-button"
+            onClick={() => onDeleteTask(task.id)}
+          >
+            削除
+          </button>
+        </div>
       </div>
     </li>
   );

@@ -1,13 +1,20 @@
 import "./TaskList.css";
 
-import type { Task } from "../../../types/task.ts";
+import type { Task, TaskCategory, TaskPriority } from "../../../types/task.ts";
 import TaskItem from "../TaskItem/TaskItem.tsx";
 
 type TaskListProps = {
   tasks: Task[];
   onToggleTaskCompletion: (id: string) => void;
   onDeleteTask: (id: string) => void;
-  onEditTask: (id: string, title: string, content: string, deadline: string) => void;
+  onEditTask: (
+    id: string, 
+    title: string, 
+    content: string, 
+    deadline: string,
+    category: TaskCategory,
+    priority: TaskPriority,
+  ) => void;
 };
 
 
