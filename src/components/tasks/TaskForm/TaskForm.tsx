@@ -1,14 +1,23 @@
 import "./TaskForm.css";
 import React, { useState } from "react";
+import type { TaskCategory, TaskPriority } from "../../../types/task";
 
 type TaskFormProps = {
-  onAddTask: (title: string, content: string, deadline: string) => void;
+  onAddTask: (
+    title: string, 
+    content: string, 
+    deadline: string,
+    category: TaskCategory,
+    priority: TaskPriority,
+  ) => void;
 }
 
 const TaskForm = ({ onAddTask }: TaskFormProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [deadline, setDeadline] = useState("");
+  const [category, setCategory] = useState<TaskCategory>("React");
+  const [priority, setPriority] = useState<TaskPriority>("medium");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // フォーム送信時にページがリロードされるのを防ぐ記述
@@ -21,12 +30,14 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
       return;
     }
 
-    onAddTask(title, content, deadline);
+    onAddTask(title, content, deadline, category, priority);
 
     // onAddTask後に各stateを初期化する記述
     setTitle("");
     setContent("");
     setDeadline("");
+    setCategory("React");
+    setPriority("medium");
   };
 
   return (
@@ -61,6 +72,34 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
         />
+      </div>
+
+      <div className="task-form__field">
+        <label htmlFor="category">カテゴリ</label>
+        <select
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value as TaskCategory)}
+        >
+          <option value="React">React</option>
+          <option value="Django">Django</option>
+          <option value="Research">Research</option>
+          <option value="TOEIC">TOEIC</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div className="task-form__field">
+        <label htmlFor="priority">優先度</label>
+        <select
+          id="priority"
+          value={priority}
+          onChange={(e) => setPriority(e.target.value as TaskPriority)}
+        >
+          <option value="low">低</option>
+          <option value="medium">中</option>
+          <option value="high">高</option>
+        </select>
       </div>
 
       <button type="submit">追加</button>

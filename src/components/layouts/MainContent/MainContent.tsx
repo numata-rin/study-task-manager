@@ -1,15 +1,28 @@
 import "./MainContent.css";
 
-import type { Task } from "../../../types/task";
+import type { Task, TaskCategory, TaskPriority } from "../../../types/task";
 import TaskList from "../../tasks/TaskList/TaskList";
 import TaskForm from "../../tasks/TaskForm/TaskForm";
 
 type MainContentProps = {
   tasks: Task[];
-  onAddTask: (title: string, content: string, deadline: string) => void;
+  onAddTask: (
+    title: string, 
+    content: string, 
+    deadline: string, 
+    category: TaskCategory, 
+    priority: TaskPriority
+  ) => void;
   onToggleTaskCompletion: (id: string) => void;
   onDeleteTask: (id: string) => void;
-  onEditTask: (id: string, title: string, content: string, deadline: string) => void;
+  onEditTask: (
+    id: string, 
+    title: string, 
+    content: string, 
+    deadline: string,
+    category: TaskCategory,
+    priority: TaskPriority,
+  ) => void;
 };
 
 const MainContent = ({
