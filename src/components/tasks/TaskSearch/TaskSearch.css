@@ -1,0 +1,17 @@
+.task-search {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.task-search__label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.task-search__input {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
