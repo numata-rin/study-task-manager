@@ -3,10 +3,10 @@ import { useState } from "react";
 
 import type { Task, TaskCategory, TaskPriority } from "../../../types/task";
 import TaskList from "../../tasks/TaskList/TaskList";
-import TaskForm from "../../tasks/TaskForm/TaskForm";
+import TaskForm from "../../tasks/TaskForm/TaskForm/TaskForm";
 import TaskSearch from "../../tasks/TaskSearch/TaskSearch";
-import TaskCategoryFilter from "../../tasks/TaskCategoryFilter/TaskCategoryFilter";
-import { TaskCompletionFilter, type CompletionFilterValue } from "../../tasks/TaskCompletionFilter/TaskCompletionFilter";
+import TaskCategoryFilter from "../../tasks/TaskFilter/TaskCategoryFilter/TaskCategoryFilter";
+import { TaskCompletionFilter, type CompletionFilterValue } from "../../tasks/TaskFilter/TaskCompletionFilter/TaskCompletionFilter";
 
 type CategoryFilterValue = TaskCategory | "all";
 

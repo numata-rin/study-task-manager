@@ -1,6 +1,6 @@
 import "./TaskCategoryFilter.css";
 
-import type { TaskCategory } from "../../../types/task";
+import type { TaskCategory } from "../../../../types/task";
 
 type CategoryFilterValue = TaskCategory | "all";
 
