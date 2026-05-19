@@ -1,7 +1,8 @@
 .task-completion-filter {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
 .task-completion-filter__label {
@@ -14,6 +15,7 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-self: center;
 }
 
 .task-completion-filter__button {

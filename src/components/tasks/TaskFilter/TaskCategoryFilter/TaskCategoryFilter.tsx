@@ -35,7 +35,7 @@ const TaskCategoryFilter = ({
   return (
     <div className="task-category-filter">
       <label htmlFor="task-category-filter" className="task-category-filter__label">
-        カテゴリ絞り込み
+        <h2>カテゴリ絞り込み</h2>
       </label>
 
       <select

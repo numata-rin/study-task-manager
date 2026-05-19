@@ -35,17 +35,30 @@
   resize: vertical;
 }
 
-.task-form button {
-  align-self: flex-start;
-  padding: 8px 16px;
+.task-form__submit-button {
+  align-self: center;
+  padding: 15px 36px;
 
   border: none;
-  border-radius: 6px;
-  background-color: #333;
-  color: white;
+  border-radius: 8px;
+  background-color: #b325eb;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+
+  transition: background-color 0.2s ease, transform 0.1s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
 }
 
-.task-form button:hover {
-  opacity: 0.8;
+.task-form__submit-button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.3);
+}
+
+.task-form__submit-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
 }

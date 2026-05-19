@@ -1,17 +1,35 @@
 .header {
-  height: 15vh;
-  background-color: #B5B2AE;
+  width: 100%;
+  min-height: 150px;
   padding: 24px;
   box-sizing: border-box;
+
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.72)
+    ),
+    url("/images/Header-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  border-bottom: 2px solid #9ca3af;
 }
 
 .header h1 {
   margin: 0;
-  font-size: 32px;
+  font-family: "Poppins", "Noto Sans JP", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #111827;
+
 }
 
 .header p {

@@ -22,7 +22,7 @@ export const TaskCompletionFilter = ({
 }: TaskCompletionFilterProps) => {
   return(
     <div className="task-completion-filter">
-      <p className="task-completion-filter__label">完了状態</p>
+      <h2 className="task-completion-filter__label">完了状態</h2>
 
       <div className="task-completion-filter__buttons">
         {filters.map((filter) => (

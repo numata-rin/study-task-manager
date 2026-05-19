@@ -1,7 +1,7 @@
 .task-search {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  margin-bottom: 20px;
 }
 
 .task-search__label {
@@ -10,8 +10,8 @@
 }
 
 .task-search__input {
-  padding: 16px;
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
 }

@@ -102,7 +102,7 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
         </select>
       </div>
 
-      <button type="submit">追加</button>
+      <button type="submit" className="task-form__submit-button">追加</button>
 
     </form>
   )
