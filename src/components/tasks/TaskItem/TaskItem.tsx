@@ -71,13 +71,23 @@ const TaskItem = ({
         </label>
 
         <h3 className="task-item__title">{task.title}</h3>
-        <p className="task-item__content">{task.content}</p>
+          <p className="task-item__content">
+            <span className="task-item__detail-label">内容：</span>{task.content}
+          </p>
       </div>
 
       <div className="task-item__details">
-        <span className="task-item__detail">カテゴリ: {task.category}</span>
         <span className="task-item__detail">
-          優先度: {priorityLabels[task.priority]}
+          <span className="task-item__detail-label">
+            カテゴリ：
+          </span>
+          {task.category}
+        </span>
+        <span className="task-item__detail">
+          <span className="task-item__detail-label">
+            優先度：
+          </span>
+          {priorityLabels[task.priority]}
         </span>
       </div>
 
