@@ -14,6 +14,21 @@ React の基礎である state 管理、props によるデータ受け渡し、�
 
 ---
 
+## スクリーンショット
+
+### アプリ全体
+
+![アプリ全体](docs/images/app-overview.png)
+
+### タスク編集
+
+![タスク編集](docs/images/task-edit.png)
+
+### タスク絞り込み
+
+![タスク絞り込み](docs/images/task-filter.png)
+
+--- 
 ## 作成目的
 
 このアプリは、React を用いたフロントエンド開発の基礎力を身につけることを目的として作成。
