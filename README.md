@@ -101,11 +101,12 @@ src/
 │   │   ├── MainContent/
 │   │   └── Footer/
 │   │
+│   │── ui/
+│   │   └── EmptyState/
+│   │
 │   └── tasks/
 │       ├── TaskForm/
-│       │   ├──TaskEditForm
-│       │   └──TaskForm
-│       │
+│       │── TaskEditForm/
 │       ├── TaskList/
 │       ├── TaskItem/
 │       ├── TaskSearch/

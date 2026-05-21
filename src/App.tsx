@@ -1,6 +1,6 @@
-import './App.css'
-import { useState, useEffect } from 'react';
+import './App.css';
 
+import { useState, useEffect } from 'react';
 import Header from './components/layouts/Header/Header';
 import MainContent from './components/layouts/MainContent/MainContent';
 import Footer from './components/layouts/Footer/Footer';
