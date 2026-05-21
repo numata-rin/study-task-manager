@@ -18,6 +18,7 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
   const [deadline, setDeadline] = useState("");
   const [category, setCategory] = useState<TaskCategory>("React");
   const [priority, setPriority] = useState<TaskPriority>("medium");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // フォーム送信時にページがリロードされるのを防ぐ記述
@@ -25,12 +26,21 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
     e.preventDefault();
 
     // 空のタスク名を防ぐ記述
-    // trim()で前後の空白を消去し、それが空文字だった場合にreturnする。
+    // trim()で前後の空白を消去し、それが空文字だった場合にエラーメッセージを出す。
+
+    const trimmedTitle = title.trim();
+
+    if (trimmedTitle === "") {
+      setErrorMessage("タスク名を入力してください");
+      return;
+    }
+
+
     if (title.trim() === "") {
       return;
     }
 
-    onAddTask(title, content, deadline, category, priority);
+    onAddTask(trimmedTitle, content, deadline, category, priority);
 
     // onAddTask後に各stateを初期化する記述
     setTitle("");
@@ -38,6 +48,7 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
     setDeadline("");
     setCategory("React");
     setPriority("medium");
+    setErrorMessage("");
   };
 
   return (
@@ -49,10 +60,19 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
           id="title"
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setTitle(e.target.value);
+            if (errorMessage) {
+              setErrorMessage("");
+            }
+          }}
           placeholder="例：ReactのuseStateを復習する"
         />
       </div>
+
+      {errorMessage && (
+        <p className="task-edit-form__error-message">{errorMessage}</p>
+      )}
 
       <div className="task-form__field">
         <label htmlFor="context">内容</label>

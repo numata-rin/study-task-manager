@@ -87,12 +87,12 @@ const TaskItem = ({
           <span className="task-item__detail-label">
             優先度：
           </span>
-          {priorityLabels[task.priority]}
+          {priorityLabels[task.priority] ?? "中"}
         </span>
       </div>
 
       <div className="task-item__meta">
-        <span className="task-item__deadline">期限: {task.deadline}</span>
+        <span className="task-item__deadline">期限: {task.deadline || "未設定"}</span>
 
         <div className="task-item__actions">
           <button

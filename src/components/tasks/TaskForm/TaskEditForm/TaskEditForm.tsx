@@ -26,11 +26,15 @@ const TaskEditForm = ({
   const [editDeadline, setEditDeadline] = useState(task.deadline);
   const [editCategory, setEditCategory] = useState<TaskCategory>(task.category);
   const [editPriority, setEditPriority] = useState<TaskPriority>(task.priority);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (editTitle.trim() === "") {
+    const trimmedTitle = editTitle.trim();
+
+    if (trimmedTitle === "") {
+      setErrorMessage("タスク名を入力してください。");
       return;
     }
 
@@ -52,9 +56,18 @@ const TaskEditForm = ({
           id={`edit-title-${task.id}`}
           type="text"
           value={editTitle}
-          onChange={(e) => setEditTitle(e.target.value)}
+          onChange={(e) => {
+            setEditTitle(e.target.value);
+            if (errorMessage) {
+              setErrorMessage("");
+            }
+          }}
         />
       </div>
+
+      {errorMessage && (
+        <p className="task-edit-form__error-message">{errorMessage}</p>
+      )}
 
        <div className="task-edit-form__field">
         <label htmlFor={`edit-content-${task.id}`}>内容</label>

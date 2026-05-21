@@ -31,16 +31,17 @@
 
 .task-edit-form__actions {
   display: flex;
-  gap: 8px;
+  justify-content: flex-end;
+  gap: 12px;
   align-items: center;
 }
 
 .task-edit-form__save-button {
   padding: 6px 12px;
   border: none;
-  border-radius: 6px;
-  background-color: #dcfce7;
-  color: #166534;
+  border-radius: 12px;
+  background-color: rgb(127, 255, 191);
+  color: green;
   cursor: pointer;
   font-size: 14px;
 }
@@ -48,9 +49,9 @@
 .task-edit-form__cancel-button {
   padding: 6px 12px;
   border: none;
-  border-radius: 6px;
-  background-color: #e5e7eb;
-  color: #333;
+  border-radius: 12px;
+  background-color: #fee2e2;
+  color: #991b1b;
   cursor: pointer;
   font-size: 14px;
 }
@@ -58,4 +59,11 @@
 .task-edit-form__save-button:hover,
 .task-edit-form__cancel-button:hover {
   opacity: 0.8;
+}
+
+.task-edit-form__error-message {
+  margin: -4px 0 4px;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 600;
 }
