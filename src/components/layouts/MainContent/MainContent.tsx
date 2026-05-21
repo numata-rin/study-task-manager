@@ -62,6 +62,57 @@ const MainContent = ({
       return matchesKeyword && matchesCategory && matchesCompletion;
   });
 
+  // const hasNoTasks = tasks.length === 0;
+
+  // const emptyTitle = hasNoTasks
+  //   ? "まだタスクがありません。"
+  //   : "条件に一致するタスクが見つかりませんでした。";
+
+  // const emptyMessage = hasNoTasks
+  //   ? "まずは学習タスクを追加して、今日やることを整理してみましょう。"
+  //   : "検索キーワードやカテゴリ、完了状態の条件を変更してもう一度確認してください。"
+
+  const getEmptyMessage = () => {
+
+    if (tasks.length === 0) {
+      return {
+        title: "まだタスクがありません",
+        message:
+          "まずは学習タスクを追加して、今日やることを整理してみましょう。",
+     };
+    }
+
+    if (normalizedKeyword !== "") {
+      return {
+        title: "検索結果が見つかりませんでした",
+        message:
+          "キーワードを変更するか、検索欄を空にしてもう一度確認してください。",
+      };
+    }
+
+    if (selectedCategory !== "all") {
+      return {
+        title: "このカテゴリのタスクはありません",
+        message:
+          "別のカテゴリを選択するか、新しいタスクを追加してみましょう。",
+      };
+    }
+
+    if (completionFilter !== "all") {
+      return {
+        title: "該当する完了状態のタスクはありません",
+        message: "完了状態の条件を変更してもう一度確認してください。",
+      };
+    }
+
+    return {
+      title: "表示できるタスクがありません",
+      message: "条件を変更してもう一度確認してください。",
+    };
+  };
+
+  const emptyState = getEmptyMessage();
+
   return (
     <main className="main-content">
 
@@ -82,12 +133,14 @@ const MainContent = ({
 
       <TaskList
         tasks={filteredTasks}
+        emptyTitle={emptyState.title}
+        emptyMessage={emptyState.message}
         onToggleTaskCompletion={onToggleTaskCompletion}
         onDeleteTask={onDeleteTask}
         onEditTask={onEditTask}
       />
       
-      <TaskForm onAddTask={onAddTask}/>
+      <TaskForm onAddTask={onAddTask} />
     </main>
   )
 };

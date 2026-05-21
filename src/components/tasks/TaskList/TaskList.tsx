@@ -2,9 +2,12 @@ import "./TaskList.css";
 
 import type { Task, TaskCategory, TaskPriority } from "../../../types/task.ts";
 import TaskItem from "../TaskItem/TaskItem.tsx";
+import EmptyState from "../../ui/EmptyState/EmptyState.tsx";
 
 type TaskListProps = {
   tasks: Task[];
+  emptyTitle: string;
+  emptyMessage: string;
   onToggleTaskCompletion: (id: string) => void;
   onDeleteTask: (id: string) => void;
   onEditTask: (
@@ -17,16 +20,17 @@ type TaskListProps = {
   ) => void;
 };
 
-
 const TaskList = ({
   tasks,
+  emptyTitle,
+  emptyMessage,
   onToggleTaskCompletion,
   onDeleteTask,
   onEditTask,
 }: TaskListProps) => {
   
   if (tasks.length === 0) {
-    return <p className="task-list__empty">表示できるタスクがまだありません。</p>;
+    return <EmptyState title={emptyTitle} message={emptyMessage} />
   }
 
   return (
