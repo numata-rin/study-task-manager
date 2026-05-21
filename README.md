@@ -13,6 +13,13 @@ Study Task Manager は、日々の学習タスクを整理し、進捗を管理�
 React の基礎である state 管理、props によるデータ受け渡し、フォーム制御、条件分岐表示、配列操作、コンポーネント分割などを学んだ後で、実際にアプリを作ってアウトプットするという目的で作成した。
 
 ---
+## デプロイURL
+
+以下のURLからアプリを確認できます。
+
+ https://study-task-manager-roan.vercel.app/
+
+---
 
 ## スクリーンショット
 
@@ -87,6 +94,7 @@ React の基礎である state 管理、props によるデータ受け渡し、�
 | ビルドツール | Vite |
 | スタイリング | CSS |
 | データ保存 | LocalStorage |
+| デプロイ | Vercel |
 | バージョン管理 | Git / GitHub |
 
 ---
