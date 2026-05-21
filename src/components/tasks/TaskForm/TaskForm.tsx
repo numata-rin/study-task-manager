@@ -1,6 +1,7 @@
 import "./TaskForm.css";
+
 import React, { useState } from "react";
-import type { TaskCategory, TaskPriority } from "../../../../types/task";
+import type { TaskCategory, TaskPriority } from "../../../types/task";
 
 type TaskFormProps = {
   onAddTask: (

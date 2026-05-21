@@ -1,7 +1,7 @@
 import "./TaskItem.css";
 
 import type { Task, TaskCategory, TaskPriority } from "../../../types/task";
-import TaskEditForm from "../TaskForm/TaskEditForm/TaskEditForm";
+import TaskEditForm from "../TaskEditForm/TaskEditForm";
 import { useState } from "react";
 
 type TaskItemProps = {
